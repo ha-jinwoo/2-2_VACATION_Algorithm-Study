@@ -1,0 +1,57 @@
+#include <iostream>
+#include<stdio.h>
+#include<algorithm>
+using namespace std;
+int find(int arr[],int first,int last){
+	int x=0,y=0;
+	while(1){
+		if(arr[first]<=arr[last]){x+=arr[last];
+		last--;
+		}
+		else {x+=arr[first];
+		first++;
+		}
+		if(first>last)break;
+		if(arr[first]<=arr[last]){y+=arr[last];
+				last--;
+				}
+				else {y+=arr[first];
+				first++;
+				}
+		if(first>last)break;
+	}
+	return max(x,y);
+}
+int find2(int arr[],int first,int last){
+	int x=0,y=0;
+	while(1){
+		if(arr[first]<=arr[last]){x+=arr[last];
+		last--;
+		}
+		else {x+=arr[first];
+		first++;
+		}
+		if(first>last)break;
+		if(arr[first]<=arr[last]){y+=arr[last];
+				last--;
+				}
+				else {y+=arr[first];
+				first++;
+				}
+		if(first>last)break;
+	}
+	return min(x,y);
+}
+int main()
+{
+int j,n,i,m;
+cin>>m;
+for(j=0;j<m;j++){
+	cin>>n;
+	int *arr=new int[n];
+	for(i=0;i<n;i++)cin>>arr[i];
+	if(n%2==0)cout<<find(arr,0,n-1)<<endl;
+	else cout<<max(arr[0]+find2(arr,1,n-1),arr[n-1]+find2(arr,0,n-2))<<endl;
+				}
+return 0;
+}

@@ -1,0 +1,40 @@
+#include<stdio.h>
+int yesorno(int n,int a[],int visit[],int b){
+	int update,i,j,count=0;
+	for(j=0;j<n;j++){
+		if(visit[j]==0)
+		{
+			update=a[j];
+		count++;
+
+		if(count>b)return 0;
+	for(i=j;i<n;i++){
+
+		if(a[i]>update&&visit[i]==0) {
+			update=a[i];
+			visit[i]=1;
+		}
+
+	}
+		}
+	}
+	return 1;
+}
+int main(){
+
+int n,b,i;
+scanf("%d %d",&n,&b);
+
+int *a=(int*)malloc(sizeof(int)*n);
+for(i=0;i<n;i++)scanf("%d",&a[i]);
+int *visit=(int*)malloc(sizeof(int)*n);
+for(i=0;i<n;i++)visit[i]=0;
+
+if(yesorno(n,a,visit,b))printf("YES");
+		else printf("NO");
+
+
+return 0;
+}
+
+a[0]를 count 로 사용했다.

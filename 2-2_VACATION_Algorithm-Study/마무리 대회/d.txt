@@ -1,0 +1,63 @@
+#include<stdio.h>
+#include<string.h>
+#include <iostream>
+#include <cmath>
+#include<algorithm>
+
+
+using namespace std;
+struct h
+{
+	int x;
+	int y;
+};
+bool comparey2(struct h a,struct h b){
+	return a.y>b.y;
+}
+int main()
+{
+	int n,i,l,r=0,j,k,a,max=0;
+	struct h h[10005];
+	cin>>n;
+	for(i=0;i<n;i++)cin>>h[i].x>>h[i].y;
+
+	sort(h,h+n,comparey2);
+
+	i=0;
+	k=0;
+	j=1;
+	while(j!=n+1){
+		if(h[j].x>=h[k].x&&j!=n){
+			i=j;
+			j++;
+
+		}
+		else if(h[i].x<=h[j].y&&j!=n){
+			i=j;
+			j++;
+
+		}
+
+		else if(j==n){max=h[k].x;
+		for(a=k;a<=j-1;a++)if(max>=h[a].x)max=h[a].x;
+
+		l=h[k].y-max;
+
+		r=r+l;
+		j++;
+
+		}
+		else {max=h[k].x;
+			for(a=k;a<=j-1;a++)if(max>=h[a].x)max=h[a].x;
+
+			l=h[k].y-max;
+			k=j;
+			r=r+l;
+			i++;
+			j++;
+
+		}
+	}
+	cout<<r;
+	return 0;
+}

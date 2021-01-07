@@ -1,0 +1,71 @@
+#include <iostream>
+#include<stdio.h>
+#include<algorithm>
+using namespace std;
+
+struct h
+{
+ int x;
+ int y;
+};
+bool comparex(struct h a,struct h b){
+	return a.x<b.x;
+}
+bool comparey1(struct h a,struct h b){
+	return a.y<b.y;
+}
+bool comparey2(struct h a,struct h b){
+	return a.y>b.y;
+}
+   int find(struct h a[],int k,int y,int i){
+  	 int j=0;
+  	 if(a[i+j].y>y)return 0;
+  	 else if(a[i+j].y<y)return 1;
+  	 else j++;
+   }
+ void num(struct h a[],int n){
+	 int i=0,y=0,k,c,j;
+	 k=0;
+	 while(i<n-1){
+		 if(a[i].x==a[i+1].x){
+
+		 while(1){
+			 if(a[i].x!=a[i+k+1].x)break;
+			 k++;
+		 }
+		c=find(a,k,y,i);
+
+		 if(c==0)sort(a+i-1,a+i-1+k,comparey1);
+		 else sort(a+i-1,a+i-1+k,comparey2);
+
+		 i+=k+1;
+		 k=0;
+		 y=a[i-1].y;
+
+	 }
+		 else  i++;
+
+	 }
+ }
+
+int main()
+{
+int n,m,i,k,n2,c,j;
+struct h h[100000];
+cin>>m;
+
+for(k=0;k<m;k++)
+{
+	cin>>n;
+for(i=0;i<n;i++)cin>>h[i].x>>h[i].y;
+sort(h,h+n,comparex);
+num(h,n);
+
+cin>>n2;
+for(j=0;j<n2;j++){
+	cin>>c;
+	cout<<h[c-1].x<<" "<<h[c-1].y<<endl;
+}
+}
+return 0;
+}

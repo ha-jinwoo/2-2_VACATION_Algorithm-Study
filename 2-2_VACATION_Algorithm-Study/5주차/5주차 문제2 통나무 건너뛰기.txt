@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<string.h>
+#include <iostream>
+#include <cmath>
+#include<algorithm>
+using namespace std;
+
+int main(){
+	int n,m;
+	int i,j,left,right,k,x;
+	int max;
+	cin>>m;
+
+	for(j=0;j<m;j++){
+		cin>>n;
+		k=0;
+		left=0;
+		right=n-1;
+		int *arr=new int[n];
+		int *arr2=new int[n];
+		for(i=0;i<n;i++)cin>>arr[i];
+	sort(arr,arr+n);
+
+	while(1){
+		arr2[left]=arr[k],k++,left++;
+		if(k==n)break;
+		arr2[right]=arr[k],k++,right--;
+		if(k==n)break;
+	}
+
+	max=abs(arr2[0]-arr2[1]);
+	for(k=1;k<n-1;k++)if(max<abs(arr2[k]-arr2[k+1]))max=abs(arr2[k]-arr2[k+1]);
+	cout<<max<<endl;
+
+	}
+	return 0;
+}

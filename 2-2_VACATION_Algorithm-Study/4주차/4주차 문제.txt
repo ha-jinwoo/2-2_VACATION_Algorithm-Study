@@ -1,0 +1,47 @@
+1
+ACM-ICPC 2016 인터넷 예선 A - 이진 트리(Binary Tree)
+백준 : 13325
+https://www.acmicpc.net/problem/13325
+?명
+
+2
+ACM-ICPC 2015 인터넷 예선 H - 회문인 숫자(Palindromic Numbers)
+백준 : 11068
+https://www.acmicpc.net/problem/11068
+?명
+
+3
+ACM-ICPC 2016 지역 본선 L - 바이러스(Virus) : 채점 준비중
+백준 : 13570
+https://www.acmicpc.net/problem/13570
+?명
+
+4
+ACM-ICPC 2016 지역 본선 I - 로봇(Robot)
+백준 : 13567
+https://www.acmicpc.net/problem/13567
+?명
+
+5
+ACM-ICPC 2015 인터넷 예선 G - 모노톤길(Monotone Walkway)
+백준 : 11067
+https://www.acmicpc.net/problem/11067
+?명
+
+6
+1로 만들기
+백준 : 1463
+https://www.acmicpc.net/problem/1463
+?명
+
+7
+스티커
+백준 : 9465
+https://www.acmicpc.net/problem/9465
+?명
+
+
+보너스 문제
+가장 긴 증가하는 부분 수열(LIS)
+백준 : 11053
+https://www.acmicpc.net/problem/11053

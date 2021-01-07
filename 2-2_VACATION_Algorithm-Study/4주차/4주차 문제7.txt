@@ -1,0 +1,41 @@
+#include<stdio.h>
+int max(int a,int b)
+{
+	if(a<b)return b;
+	else return a;
+}
+int main()
+{
+int m,n,i,j;
+int **arr;//인접행렬 사용
+scanf("%d",&m);
+
+for(j=0;j<m;j++)
+{
+scanf("%d",&n);
+
+int *c=(int*)malloc(sizeof(int)*n);
+
+arr = (int **)malloc(2*sizeof(int *));
+for (i=0; i<2; i++)  arr[i] = (int *)malloc(n*sizeof(int));
+
+for (i=0; i<n; i++)scanf("%d",&arr[0][i]);
+
+
+for (i=0; i<n; i++)scanf("%d",&arr[1][i]);
+
+c[0]=max(arr[0][0],arr[0][1]);
+
+if(n>1){
+c[1]=max(arr[0][0]+arr[1][1],arr[1][0]+arr[0][1]);
+	for(i=2;i<n;i++)
+	{c[i]=
+	
+
+	}
+
+		 }
+}
+
+return 0;
+}

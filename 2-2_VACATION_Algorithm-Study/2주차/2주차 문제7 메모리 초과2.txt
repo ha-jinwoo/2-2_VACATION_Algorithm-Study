@@ -1,0 +1,55 @@
+#include<stdio.h>
+void fs(int **arr,int visit[],int c[],int n,int x){
+	int i,j;
+
+	if(visit[x]==0){
+		visit[n]++;
+		visit[x]=1;
+	}
+	for(i=0;i<n;i++)
+		if(arr[x][i]==1&&c[x]<c[i])
+			{
+			fs(arr,visit,c,n,i);
+			}
+
+}
+int main()
+{
+int n,m,i,a,b,j;
+scanf("%d %d",&n,&m);
+
+int *visit=(int*)malloc(sizeof(int)*(n+1));
+for(i=0;i<n+1;i++) visit[i]=0;
+
+int *c=(int*)malloc(sizeof(int)*n);
+for(i=0;i<n;i++) c[i]=0;
+
+int **arr;//인접행렬 사용
+arr = (int **)malloc(n*sizeof(int *));
+for (i=0; i<n; i++) arr[i] = (int *)malloc(n*sizeof(int));
+
+for(i=0;i<n;i++)
+for(j=0;j<n;j++) arr[i][j]=0;
+
+for(i=0;i<m;i++){
+	scanf("%d %d",&a,&b);
+	arr[a][b]=1;
+	arr[b][a]=1;
+	c[a]++;
+	c[b]++;
+					  }
+
+int max=0;
+for(i=0;i<n;i++){
+	fs(arr,visit,c,n,i);
+	if(max<visit[n])max=visit[n];
+	for(a=0;a<n+1;a++) visit[a]=0;
+}
+printf("%d",max);
+
+free(arr);
+free(c);
+free(visit);
+
+return 0;
+}

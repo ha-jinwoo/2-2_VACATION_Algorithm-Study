@@ -1,0 +1,18 @@
+cin>>n;
+
+for(k=2;k<=64;k++){
+c[100000];
+
+i=0;
+
+while(n!=0){
+c[i]=n%k;
+n/k;
+i++;
+
+}
+
+}
+
+if(flag==1)return 1;
+else return 0;

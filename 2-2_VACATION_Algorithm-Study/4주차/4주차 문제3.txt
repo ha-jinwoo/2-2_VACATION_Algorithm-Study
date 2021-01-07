@@ -1,0 +1,14 @@
+노드 i가 감염되었을때 루트가 i인 subtree의 최소 감염노드수
+C (i)= 자식이 2개               MIN(C(j),C(k))+1
+        
+       자식이 1개, 자식이 0개 1
+
+int c(int i)
+{
+if(arr[i][0]==-1||arr[i][1]==-1) return 1;
+else return min(c(arr[i][0]),c(arr[i][1]))+1;
+}
+
+이진트리 높이를 재귀적 구현
+h(i)= i가 empty binary tree이면 높이-1
+       그렇치 않으면 높이 left_child와 right_child 중 max +1 

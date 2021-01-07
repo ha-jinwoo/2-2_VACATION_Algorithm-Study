@@ -1,0 +1,43 @@
+#include <iostream>
+#include<stdio.h>
+#include<algorithm>
+using namespace std;
+int multiple(int arr,long long int time){
+	return time/arr;
+}
+int firsttime(int arr[],int n){
+	int i;
+	long long int time,time2;
+	for(i=1;i<n;i++){
+	time=i*arr[n-1];
+	time2=(n-i)*arr[0];
+	if(time>=time2)return i-1;
+	}
+
+}
+int findtime(int arr[],int n,long long int time,long long int time2){
+	long long int i;
+	int j;
+	int x=0;
+	for(i=time;i<=time2;i++){
+		x=0;
+		for(j=0;j<n;j++)x+=multiple(arr[j],i);
+	 if(x>=n) return i;
+
+	}
+}
+int main()
+{int j,n,m;
+long long int time,time2;
+cin>>n>>m;
+int *arr=new int[n];
+for(j=0;j<n;j++)cin>>arr[j];
+sort(arr,arr+n);
+cout<<firsttime(arr,n);
+time=arr[n-1]*firsttime(arr,n);
+time2=arr[n-1]*(firsttime(arr,n)+1);
+
+cout<<findtime(arr,n,time,time2);
+
+return 0;
+}

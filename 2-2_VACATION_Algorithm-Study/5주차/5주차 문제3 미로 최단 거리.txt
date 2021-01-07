@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<string.h>
+#include <iostream>
+#include <cmath>
+#include<algorithm>
+  
+using namespace std; 
+
+void bfs(int num[],int **visit,int n,int **arr){//너비우선 탐색
+	int i,j;
+	
+	for(i=0;i<n;i++){
+		if(arr[num[0]][i]==1&&num[0]!=i&&visit[i]==0){//인접하면서 방문하지 않은경우
+			visit[i]=1;//방문처리
+			result[i]=result[num[0]]+1;//트리로 구현했을 때 인접한 vertix의 높이를 1 증가시켜줌
+			enQueue(Q1,i);//인접한 vertix 큐에 추가
+		}
+	}
+}
+int main(){
+
+	int n,m;
+	int i,j;
+	cin>>m>>n;
+	int **arr = new int *[m];
+	for (i = 0; i < n; i++) arr[i] = new int[n];
+	
+	int **visit = new int *[m];
+	for (i = 0; i < n; i++) visit[i] = new int[n];
+	
+	for (j = 0; j < m; j++)
+	for (i = 0; i < n; i++)visit[j][i]=0;
+	
+	int num[1]={0};
+	string str;
+	for(i=0;i<m;i++){
+		cin>>str;
+		   for(j=0;j<n;j++){
+			   if(str[j]=='0')
+			   	arr[i][j]=0;
+			   else arr[i][j]=1;
+		   }
+	}
+
+	return 0;
+}

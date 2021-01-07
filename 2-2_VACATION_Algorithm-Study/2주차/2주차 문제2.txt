@@ -1,0 +1,30 @@
+#include<stdio.h>
+void find(int a[],int visit[],int k,int b){
+	visit[k]=1;
+	if(b==a[k])a[0]++;
+	if(visit[a[k]]==0)find(a,visit,a[k],b);
+}
+
+int main(){
+int n,n2,i,j,s,y,count=0;
+scanf("%d",&n);
+
+for(i=0;i<n;i++){
+	scanf("%d",&n2);
+	int *a=(int*)malloc(sizeof(int)*(n2+1));
+	int *visit=(int*)malloc(sizeof(int)*(n2+1));
+	for(y=0;y<n2;y++)visit[y+1]=0;
+
+    a[0]=0;
+
+	for(j=0;j<n2;j++){
+		scanf("%d",&s);
+		a[j+1]=s;}
+
+	for(y=1;y<n2+1;y++) find(a,visit,y,y);
+
+	printf("%d\n",a[0]);
+
+}
+return 0;
+}

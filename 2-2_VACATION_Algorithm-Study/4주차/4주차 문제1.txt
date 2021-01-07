@@ -1,0 +1,44 @@
+#include <iostream>
+#include<stdio.h>
+#include <algorithm>
+
+using namespace std;
+int max(int a,int b){
+	if(a>b)return a;
+	else return b;
+}
+int abs(int a){
+	if(a<0)return a*-1;
+	else return a;
+}
+int find(int tree[],int n1,int node){
+
+	if(node*2+1>=n1-1){
+		tree[n1-1]+=tree[node];
+		return tree[node];
+	}
+	else{
+	int left=find(tree,n1,node*2+1);
+	int right=find(tree,n1,node*2+2);
+	tree[n1-1]+=abs(left-right)+tree[node];
+	return tree[node]+max(left,right);
+	}
+}
+
+int main() {
+int n2,i,n1=1;
+cin>>n2;
+for(i=0;i<n2+1;i++){
+	n1*=2;
+}
+
+int *tree=new int[n1];
+tree[0]=0;
+tree[n1-1]=0;
+for(i=1;i<n1-1;i++)cin>>tree[i];
+i=find(tree,n1,0);
+cout<<tree[n1-1];
+    return 0;
+}
+
+

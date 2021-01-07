@@ -1,0 +1,18 @@
+do{
+totalweight=0;
+for(i=w-2;i>0;i--){
+b[i+1]=b[i];
+totalweight+=b[i+1];
+}
+if(k < n){
+if(totalweight+a[k]<=l){
+b[0]=a[k];
+totalweight+=b[0];
+k++;
+}
+else b[0]=0;
+} 
+else b[0]=0;
+time++;                                  
+}
+while(totalweight!=0)

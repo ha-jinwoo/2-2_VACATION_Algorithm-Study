@@ -1,0 +1,47 @@
+1
+ACM-ICPC 2012 인터넷 예선 F - 순서(Order)
+백준 : 9011
+https://www.acmicpc.net/problem/9011
+2명
+
+2
+ACM-ICPC 2014 지역 본선 F - 순열 사이클(Permutation Cycles)
+백준 : 10451
+https://www.acmicpc.net/problem/10451
+2명
+
+3
+ACM-ICPC 2016 인터넷 예선 I - Q-인덱스(Q-Index)
+백준 : 13333
+https://www.acmicpc.net/problem/13333
+2명
+
+4
+ACM-ICPC 2018 인터넷 예선 G - Passport Control
+백준 : 16288
+https://www.acmicpc.net/problem/16288
+3명
+
+5
+ACM-ICPC 2015 지역 본선 I - 주식(Stock)
+백준 : 11501
+https://www.acmicpc.net/problem/11501
+3명
+
+6
+ACM-ICPC 2016 지역 본선 G - 침투(Percolation)
+백준 : 13565
+https://www.acmicpc.net/problem/13565
+3명
+
+7
+ACM-ICPC 2017 지역 본선 C - Game Map
+백준 : 16287
+https://www.acmicpc.net/problem/14953
+4명
+
+8
+ACM-ICPC 2012 인터넷 예선 A - 다리(Bridge)
+백준 : 9006
+https://www.acmicpc.net/problem/9006
+5명

@@ -1,0 +1,234 @@
+#include <iostream>
+#include<stdio.h>
+using namespace std;
+
+struct h
+{
+ int x;
+ int y;
+};
+
+ void merge(struct h a[],int l,int m, int r)
+ {
+	  int i,j,k;
+	  int n1=m-l+1;
+	  int n2=r-m;//각 크기만큼 n1,n2만든다.
+	  int left_list[n1],right_list[n2];//x를 저장할 배열
+	  int left_list2[n1],right_list2[n2];//y를 저장할 배열
+	  for(i=0;i<n1;i++)
+	  { left_list[i]=a[l+i].x;
+	  left_list2[i]=a[l+i].y;
+	  }
+	  for(j=0;j<n2;j++)//모두 복사
+	  {
+		  right_list[j]=a[m+1+j].x;
+	  right_list2[j]=a[m+1+j].y;
+	  }
+	  i=0;
+	  j=0;
+	  k=l;
+	  while(i<n1&&j<n2)
+	  {
+		  if(left_list[i]<=right_list[j])//작은거부터 나열(왼쪽이 작은경우)
+		  {
+			  a[k].x=left_list[i];
+			  a[k].y=left_list2[i];
+			  i++;
+		  }
+		  else//오른쪽이 작은경우
+		  {
+			  a[k].x=right_list[j];
+			  a[k].y=right_list2[j];
+			  j++;
+		  }
+		  k++;//배열 1개 이동
+	  }
+	  while(i<n1)//남은거 복사
+	  {
+		  a[k].x=left_list[i];
+		  a[k].y=left_list2[i];
+		  i++;
+		  k++;
+
+	  }
+	  while(j<n2)//남은거 복사
+	  {
+		  a[k].x=right_list[j];
+		  a[k].y=right_list2[j];
+		  j++;
+		  k++;
+	  }
+ }
+ void merge_sort(struct h a[],int left,int right)
+ {
+ 	 int mid;
+ 	 if(left<right)
+ 	 {
+ 	 mid=(left+right)/2;
+ 	 merge_sort(a,left,mid);//왼쪽절반
+ 	 merge_sort(a,mid+1,right);//오른쪽절반
+ 	 merge(a,left,mid,right);//병합한다.
+ 	 }
+ }
+ void merge2(struct h a[],int l,int m, int r)
+  {
+ 	  int i,j,k;
+ 	  int n1=m-l+1;
+ 	  int n2=r-m;//각 크기만큼 n1,n2만든다.
+ 	  int left_list[n1],right_list[n2];//x를 저장할 배열
+ 	  for(i=0;i<n1;i++)
+ 	  { left_list[i]=a[l+i].y;
+ 	  }
+ 	  for(j=0;j<n2;j++)//모두 복사
+ 	  {
+ 		  right_list[j]=a[m+1+j].y;
+ 	  }
+ 	  i=0;
+ 	  j=0;
+ 	  k=l;
+ 	  while(i<n1&&j<n2)
+ 	  {
+ 		  if(left_list[i]<=right_list[j])//작은거부터 나열(왼쪽이 작은경우)
+ 		  {
+ 			  a[k].y=left_list[i];
+ 			  i++;
+ 		  }
+ 		  else//오른쪽이 작은경우
+ 		  {
+ 			  a[k].y=right_list[j];
+ 			  j++;
+ 		  }
+ 		  k++;//배열 1개 이동
+ 	  }
+ 	  while(i<n1)//남은거 복사
+ 	  {
+ 		  a[k].y=left_list[i];
+ 		  i++;
+ 		  k++;
+
+ 	  }
+ 	  while(j<n2)//남은거 복사
+ 	  {
+ 		  a[k].y=right_list[j];
+ 		  j++;
+ 		  k++;
+ 	  }
+  }
+  void merge_sort2(struct h a[],int left,int right)
+  {
+  	 int mid;
+  	 if(left<right)
+  	 {
+  	 mid=(left+right)/2;
+  	 merge_sort2(a,left,mid);//왼쪽절반
+  	 merge_sort2(a,mid+1,right);//오른쪽절반
+  	 merge2(a,left,mid,right);//병합한다.
+  	 }
+  }
+  void merge3(struct h a[],int l,int m, int r)
+   {
+  	  int i,j,k;
+  	  int n1=m-l+1;
+  	  int n2=r-m;//각 크기만큼 n1,n2만든다.
+  	  int left_list[n1],right_list[n2];//x를 저장할 배열
+  	  for(i=0;i<n1;i++)
+  	  { left_list[i]=a[l+i].y;
+  	  }
+  	  for(j=0;j<n2;j++)//모두 복사
+  	  {
+  		  right_list[j]=a[m+1+j].y;
+  	  }
+  	  i=0;
+  	  j=0;
+  	  k=l;
+  	  while(i<n1&&j<n2)
+  	  {
+  		  if(left_list[i]>=right_list[j])//작은거부터 나열(왼쪽이 작은경우)
+  		  {
+  			  a[k].y=left_list[i];
+  			  i++;
+  		  }
+  		  else//오른쪽이 작은경우
+  		  {
+  			  a[k].y=right_list[j];
+  			  j++;
+  		  }
+  		  k++;//배열 1개 이동
+  	  }
+  	  while(i<n1)//남은거 복사
+  	  {
+  		  a[k].y=left_list[i];
+  		  i++;
+  		  k++;
+
+  	  }
+  	  while(j<n2)//남은거 복사
+  	  {
+  		  a[k].y=right_list[j];
+  		  j++;
+  		  k++;
+  	  }
+   }
+   void merge_sort3(struct h a[],int left,int right)
+   {
+   	 int mid;
+   	 if(left<right)
+   	 {
+   	 mid=(left+right)/2;
+   	 merge_sort3(a,left,mid);//왼쪽절반
+   	 merge_sort3(a,mid+1,right);//오른쪽절반
+   	 merge3(a,left,mid,right);//병합한다.
+   	 }
+   }
+   int find(struct h a[],int k,int y,int i){
+  	 int j=0;
+  	 if(a[i+j].y>y)return 0;
+  	 else if(a[i+j].y<y)return 1;
+  	 else j++;
+   }
+ void num(struct h a[],int n){
+	 int i=0,y=0,k,c,j;
+	 k=0;
+	 while(i<n-1){
+		 if(a[i].x==a[i+1].x){
+
+		 while(1){
+			 if(a[i].x!=a[i+k+1].x)break;
+			 k++;
+		 }
+		c=find(a,k,y,i);
+
+		 if(c==0)merge_sort2(a,i,i+k);
+		 else merge_sort3(a,i,i+k);
+
+		 i+=k+1;
+		 k=0;
+		 y=a[i-1].y;
+
+	 }
+		 else  i++;
+
+	 }
+ }
+
+int main()
+{
+int n,m,i,k,n2,c,j;
+struct h h[100000];
+cin>>m;
+
+for(k=0;k<m;k++)
+{
+	cin>>n;
+for(i=0;i<n;i++)cin>>h[i].x>>h[i].y;
+merge_sort(h,0,n-1);
+num(h,n);
+
+cin>>n2;
+for(j=0;j<n2;j++){
+	cin>>c;
+	cout<<h[c-1].x<<" "<<h[c-1].y<<endl;
+}
+}
+return 0;
+}
